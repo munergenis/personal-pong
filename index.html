@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
+      color: white;
+      font-family: monospace;
+
       margin: 0;
       height: 100vh;
       overflow: hidden;
@@ -14,10 +17,87 @@
       display: block;
       background-color: #112;
     }
+    p#score-p {
+      position: fixed;
+      margin-left: 10px;
+      font-size: 1.25em;
+      font-weight: 100;
+    }
+    div#game-over-screen {
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      position: fixed;
+      display: none;
+      /* change to flex */
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    div#game-over-screen > p {
+      margin: 4px;
+    }
+    p#final-score {
+      font-size: 2.5em;
+    }
+    div#welcome-screen {
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      position: fixed;
+      display: flex;
+      /* change to none */
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    span#title {
+      letter-spacing: 1.2em;
+      font-weight: bolder;
+      margin-left: 25px;
+    }
+    div#author {
+      color: gray;
+      letter-spacing: .125em;
+      font-size: .625em;
+      font-weight: lighter;
+      margin-top: 15px;
+    }
+    button#start-btn,
+    button#reset-btn {
+      background-color: white;
+      border: none;
+      border-radius: .5rem;
+      font-family: inherit;
+      font-size: 2em;
+      font-weight: bolder;
+      padding: .8rem 1.6rem;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
   </style>
   <title>Pong</title>
 </head>
 <body>
+  <p id="score-p">Score: <span id="score">0</span></p>
+
+  <div id="welcome-screen">
+    <h1>
+      <span id="title">PONG</span>
+      <div id="author">by Genís Muner</div>
+    </h1>
+    <button id="start-btn">START</button>
+  </div>
+
+  <div id="game-over-screen">
+    <h2>Game Over</h2>
+    <p id="final-score">0</p>
+    <p>points</p>
+    <button id="reset-btn">RESET</button>
+    <p id="best-score-p"></p>
+  </div>
+
   <canvas id="canvas"></canvas>
   <script src="./script.js"></script>
 </body>
